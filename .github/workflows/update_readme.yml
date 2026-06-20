@@ -30,7 +30,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name  "Campus2027 Bot"
-          git add README.md
+          git add README.md data/listings.json
           git diff-index --quiet HEAD || \
             git commit -m "chore: refresh README (${{ github.event.inputs.reason }})"
 

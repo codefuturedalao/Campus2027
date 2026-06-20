@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campus 2027 | 2027届互联网秋招追踪</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #f8fafc;
+      --surface:  #ffffff;
+      --border:   #e2e8f0;
+      --text:     #0f172a;
+      --muted:    #64748b;
+      --accent:   #2563eb;
+      --accent-bg:#eff6ff;
+      --open:     #16a34a;
+      --open-bg:  #f0fdf4;
+      --exp:      #d97706;
+      --exp-bg:   #fffbeb;
+      --closed:   #94a3b8;
+      --closed-bg:#f1f5f9;
+      --radius:   8px;
+      --font:     -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+                  "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    }
+
+    body {
+      font-family: var(--font);
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── Header ─────────────────────────────────────── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 0 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      letter-spacing: -0.3px;
+    }
+    .logo span { color: var(--accent); }
+    .header-right {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .gh-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-size: 13px;
+      color: var(--text);
+      text-decoration: none;
+      background: var(--surface);
+      transition: border-color .15s, background .15s;
+    }
+    .gh-btn:hover { border-color: var(--accent); background: var(--accent-bg); }
+    .gh-btn svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ── Page wrapper ────────────────────────────────── */
+    .page { max-width: 1100px; margin: 0 auto; padding: 32px 24px 80px; }
+
+    /* ── Hero ────────────────────────────────────────── */
+    .hero { margin-bottom: 28px; }
+    .hero h1 {
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+      margin-bottom: 6px;
+    }
+    .hero p { color: var(--muted); font-size: 13px; }
+    .last-updated { color: var(--muted); font-size: 12px; margin-top: 4px; }
+
+    /* ── Stats strip ─────────────────────────────────── */
+    .stats {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .stat-card {
+      flex: 1;
+      min-width: 120px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 14px 18px;
+    }
+    .stat-card .val {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-card .lbl { font-size: 12px; color: var(--muted); }
+    .stat-card.open  .val { color: var(--open); }
+    .stat-card.exp   .val { color: var(--exp); }
+    .stat-card.total .val { color: var(--accent); }
+
+    /* ── Filter bar ──────────────────────────────────── */
+    .filters {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .filter-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .filter-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .5px;
+      min-width: 44px;
+    }
+    .pill {
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      border: 1px solid var(--border);
+      background: transparent;
+      color: var(--muted);
+      transition: all .15s;
+      white-space: nowrap;
+    }
+    .pill:hover { border-color: var(--accent); color: var(--accent); }
+    .pill.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .search-wrap {
+      position: relative;
+      margin-left: auto;
+    }
+    .search-wrap svg {
+      position: absolute;
+      left: 9px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 14px;
+      height: 14px;
+      fill: var(--muted);
+      pointer-events: none;
+    }
+    #search {
+      padding: 5px 10px 5px 30px;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      font-size: 13px;
+      outline: none;
+      width: 200px;
+      transition: border-color .15s;
+      font-family: var(--font);
+    }
+    #search:focus { border-color: var(--accent); }
+
+    /* ── Table ───────────────────────────────────────── */
+    .section-title {
+      font-size: 15px;
+      font-weight: 700;
+      margin: 28px 0 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .section-title .count {
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+      background: var(--border);
+      padding: 2px 7px;
+      border-radius: 10px;
+    }
+    .cat-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--muted);
+      margin: 16px 0 6px;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+    th {
+      background: var(--bg);
+      padding: 10px 14px;
+      text-align: left;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: .4px;
+      border-bottom: 1px solid var(--border);
+    }
+    td {
+      padding: 11px 14px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: var(--bg); }
+    .company-name {
+      font-weight: 600;
+      font-size: 13px;
+      white-space: nowrap;
+    }
+    .company-en {
+      font-size: 11px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 9px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+      text-decoration: none;
+    }
+    .status-badge.open   { background: var(--open-bg);   color: var(--open); }
+    .status-badge.exp    { background: var(--exp-bg);    color: var(--exp); }
+    .status-badge.closed { background: var(--closed-bg); color: var(--closed); }
+    .status-badge:hover { filter: brightness(.95); }
+    .locs {
+      color: var(--muted);
+      font-size: 12px;
+      max-width: 160px;
+    }
+    .notes {
+      color: var(--muted);
+      font-size: 12px;
+      max-width: 220px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .date-cell { color: var(--muted); font-size: 12px; white-space: nowrap; }
+
+    /* ── Empty state ─────────────────────────────────── */
+    .empty {
+      text-align: center;
+      padding: 64px 24px;
+      color: var(--muted);
+    }
+    .empty svg { width: 40px; height: 40px; fill: var(--border); margin-bottom: 12px; }
+    .empty p { font-size: 14px; }
+
+    /* ── Loading ─────────────────────────────────────── */
+    .loading {
+      text-align: center;
+      padding: 80px 24px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .spinner {
+      width: 24px; height: 24px;
+      border: 2px solid var(--border);
+      border-top-color: var(--accent);
+      border-radius: 50%;
+      animation: spin .7s linear infinite;
+      margin: 0 auto 12px;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── Footer ──────────────────────────────────────── */
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--muted);
+      font-size: 12px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    @media (max-width: 640px) {
+      .page { padding: 20px 16px 60px; }
+      .stats { gap: 10px; }
+      td:nth-child(3), th:nth-child(3),
+      td:nth-child(5), th:nth-child(5) { display: none; }
+      #search { width: 140px; }
+      .search-wrap { margin-left: 0; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Header ──────────────────────────────────────── -->
+<header>
+  <div class="header-inner">
+    <a class="logo" href="#">Campus <span>2027</span></a>
+    <div class="header-right">
+      <a class="gh-btn" id="gh-link" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
+          0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53
+          .63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+          0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
+          1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87
+          3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016
+          8c0-4.42-3.58-8-8-8z"/></svg>
+        GitHub
+      </a>
+      <a class="gh-btn" id="contribute-link" href="#" target="_blank" rel="noopener">
+        + 提交信息
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- ── Main ────────────────────────────────────────── -->
+<main class="page">
+  <div class="hero">
+    <h1>2027届互联网秋招信息追踪</h1>
+    <p>收录各大厂 <strong>提前批 / 正式批 / 实习</strong> 开启时间，数据来源官方渠道，社区共同维护</p>
+    <p class="last-updated" id="last-updated"></p>
+  </div>
+
+  <div class="stats" id="stats">
+    <div class="stat-card total"><div class="val" id="s-total">—</div><div class="lbl">已收录</div></div>
+    <div class="stat-card open"> <div class="val" id="s-open">—</div> <div class="lbl">✅ 投递中</div></div>
+    <div class="stat-card exp">  <div class="val" id="s-exp">—</div>  <div class="lbl">⏳ 待开放</div></div>
+    <div class="stat-card">     <div class="val" id="s-closed">—</div><div class="lbl">🔒 已截止</div></div>
+  </div>
+
+  <div class="filters">
+    <div class="filter-row">
+      <span class="filter-label">批次</span>
+      <button class="pill active" data-filter="batch" data-val="">全部</button>
+      <button class="pill" data-filter="batch" data-val="提前批">提前批</button>
+      <button class="pill" data-filter="batch" data-val="正式批">正式批</button>
+      <button class="pill" data-filter="batch" data-val="实习">实习</button>
+      <div class="search-wrap">
+        <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0
+          1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
+        <input id="search" type="text" placeholder="搜索公司名称…" autocomplete="off" />
+      </div>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">行业</span>
+      <button class="pill active" data-filter="cat" data-val="">全部</button>
+      <button class="pill" data-filter="cat" data-val="互联网/AI">互联网/AI</button>
+      <button class="pill" data-filter="cat" data-val="游戏">游戏</button>
+      <button class="pill" data-filter="cat" data-val="外企（中国）">外企</button>
+      <button class="pill" data-filter="cat" data-val="车企/通信/IC">车企/IC</button>
+      <button class="pill" data-filter="cat" data-val="金融/银行/国企">金融</button>
+      <button class="pill" data-filter="cat" data-val="安全/软件/云">安全/云</button>
+    </div>
+    <div class="filter-row">
+      <span class="filter-label">状态</span>
+      <button class="pill active" data-filter="status" data-val="">全部</button>
+      <button class="pill" data-filter="status" data-val="open">✅ 投递中</button>
+      <button class="pill" data-filter="status" data-val="expected">⏳ 未开放</button>
+      <button class="pill" data-filter="status" data-val="closed">🔒 已截止</button>
+    </div>
+  </div>
+
+  <div id="content">
+    <div class="loading"><div class="spinner"></div>加载数据中…</div>
+  </div>
+</main>
+
+<footer>
+  数据来源：官方校招网站 &amp; 社区贡献 ·
+  <a id="footer-gh" href="#">GitHub</a> ·
+  仅供参考，请以各公司官方通知为准
+</footer>
+
+<script>
+const REPO     = document.currentScript?.dataset?.repo || 'your-username/Campus2027';
+const DATA_URL = './data/listings.json';
+
+const BATCH_ORDER  = ['提前批', '正式批', '实习'];
+const CAT_ORDER    = ['互联网/AI','游戏','外企（中国）','车企/通信/IC','金融/银行/国企','安全/软件/云'];
+
+let allListings = [];
+let filters     = { batch: '', cat: '', status: '' };
+let searchQuery = '';
+
+// ── Fetch ──────────────────────────────────────────
+async function load() {
+  try {
+    const res  = await fetch(DATA_URL + '?t=' + Date.now());
+    const data = await res.json();
+    allListings = data.filter(l => l.is_visible !== false);
+    render();
+  } catch (e) {
+    document.getElementById('content').innerHTML =
+      `<div class="empty">
+        <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0
+        002 0V6zm-1 8a1 1 0 100-2 1 1 0 000 2z"/></svg>
+        <p>数据加载失败，请检查 data/listings.json 是否存在</p>
+       </div>`;
+  }
+}
+
+// ── Helpers ────────────────────────────────────────
+function fmtDate(ts) {
+  if (!ts) return '—';
+  const d = new Date(ts * 1000);
+  return `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function fmtLocs(locs) {
+  if (!locs || !locs.length) return '全国';
+  return locs.length > 3 ? locs.slice(0,3).join('、') + '等' : locs.join('、');
+}
+
+function statusBadge(l) {
+  const url  = l.career_url || '#';
+  const hint = l.status === 'open'     && l.open_date     ? `（${l.open_date}）`
+             : l.status === 'expected' && l.expected_date ? `（预计 ${l.expected_date}）`
+             : '';
+  const [cls, icon, label] =
+    l.status === 'open'   ? ['open',   '✅', '投递中' + hint] :
+    l.status === 'closed' ? ['closed', '🔒', '已截止'] :
+                            ['exp',    '⏳', '未开放' + hint];
+  return `<a class="status-badge ${cls}" href="${url}" target="_blank" rel="noopener">${icon} ${label}</a>`;
+}
+
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+// ── Filter ─────────────────────────────────────────
+function filtered() {
+  return allListings.filter(l => {
+    if (filters.batch  && l.batch_type !== filters.batch)  return false;
+    if (filters.cat    && l.category   !== filters.cat)    return false;
+    if (filters.status && l.status     !== filters.status) return false;
+    if (searchQuery) {
+      const q = searchQuery.toLowerCase();
+      if (!l.company_name.toLowerCase().includes(q) &&
+          !(l.company_en||'').toLowerCase().includes(q)) return false;
+    }
+    return true;
+  });
+}
+
+// ── Render ─────────────────────────────────────────
+function render() {
+  // Stats (always from allListings)
+  const vis = allListings;
+  document.getElementById('s-total') .textContent = vis.length;
+  document.getElementById('s-open')  .textContent = vis.filter(l=>l.status==='open').length;
+  document.getElementById('s-exp')   .textContent = vis.filter(l=>l.status==='expected').length;
+  document.getElementById('s-closed').textContent = vis.filter(l=>l.status==='closed').length;
+
+  // Last updated
+  const maxTs = Math.max(...vis.map(l=>l.date_updated||0));
+  if (maxTs > 0) {
+    document.getElementById('last-updated').textContent =
+      '最后更新：' + fmtDate(maxTs);
+  }
+
+  const items = filtered();
+  const el    = document.getElementById('content');
+
+  if (items.length === 0) {
+    el.innerHTML =
+      `<div class="empty">
+        <svg viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2
+         0v4a1 1 0 002 0V6zm-1 8a1 1 0 100-2 1 1 0 000 2z"/></svg>
+        <p>没有符合条件的记录</p>
+       </div>`;
+    return;
+  }
+
+  // Group: batch → category
+  const byBatch = {};
+  for (const b of BATCH_ORDER) byBatch[b] = {};
+  for (const l of items) {
+    const b = l.batch_type || '正式批';
+    const c = l.category   || '其他';
+    if (!byBatch[b])    byBatch[b]    = {};
+    if (!byBatch[b][c]) byBatch[b][c] = [];
+    byBatch[b][c].push(l);
+  }
+
+  let html = '';
+  for (const batch of BATCH_ORDER) {
+    const cats = byBatch[batch];
+    if (!cats || !Object.keys(cats).length) continue;
+
+    const batchTotal = Object.values(cats).flat().length;
+    html += `<div class="section-title">${batch} <span class="count">${batchTotal}</span></div>`;
+
+    const orderedCats = [
+      ...CAT_ORDER.filter(c => cats[c]),
+      ...Object.keys(cats).filter(c => !CAT_ORDER.includes(c)),
+    ];
+
+    for (const cat of orderedCats) {
+      const rows = cats[cat].sort((a,b) => a.company_name.localeCompare(b.company_name, 'zh'));
+      html += `<div class="cat-label">${escHtml(cat)}</div>
+        <table>
+          <thead><tr>
+            <th>公司</th><th>状态 &amp; 投递链接</th><th>地点</th>
+            <th>更新日期</th><th>备注</th>
+          </tr></thead>
+          <tbody>`;
+      for (const l of rows) {
+        html += `<tr>
+          <td>
+            <div class="company-name">${escHtml(l.company_name)}</div>
+            ${l.company_en ? `<div class="company-en">${escHtml(l.company_en)}</div>` : ''}
+          </td>
+          <td>${statusBadge(l)}</td>
+          <td class="locs">${escHtml(fmtLocs(l.locations))}</td>
+          <td class="date-cell">${fmtDate(l.date_updated)}</td>
+          <td class="notes" title="${escHtml(l.notes||'')}">${escHtml(l.notes||'—')}</td>
+        </tr>`;
+      }
+      html += `</tbody></table>`;
+    }
+  }
+
+  el.innerHTML = html;
+}
+
+// ── Events ─────────────────────────────────────────
+document.querySelectorAll('.pill[data-filter]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const type = btn.dataset.filter;
+    filters[type] = btn.dataset.val;
+    document.querySelectorAll(`.pill[data-filter="${type}"]`).forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    render();
+  });
+});
+
+document.getElementById('search').addEventListener('input', e => {
+  searchQuery = e.target.value.trim();
+  render();
+});
+
+// ── GitHub links ────────────────────────────────────
+(function() {
+  const repoUrl = `https://github.com/${REPO}`;
+  document.getElementById('gh-link').href         = repoUrl;
+  document.getElementById('contribute-link').href  = `${repoUrl}/issues/new/choose`;
+  document.getElementById('footer-gh').href        = repoUrl;
+})();
+
+load();
+</script>
+</body>
+</html>

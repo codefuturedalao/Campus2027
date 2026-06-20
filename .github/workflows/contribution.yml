@@ -41,7 +41,7 @@ jobs:
         run: |
           git config --local user.email "${{ steps.parse_issue.outputs.commit_email }}"
           git config --local user.name  "${{ steps.parse_issue.outputs.commit_username }}"
-          git add .github/scripts/listings.json README.md
+          git add .github/scripts/listings.json README.md data/listings.json
           git diff-index --quiet HEAD || \
             git commit -m "${{ steps.parse_issue.outputs.commit_message }}"
 

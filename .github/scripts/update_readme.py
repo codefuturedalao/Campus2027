@@ -155,8 +155,15 @@ def main() -> None:
 
     with open(README_FILE, "w", encoding="utf-8") as f:
         f.write(readme)
-
     print(f"README.md 已更新（共 {len(listings)} 条记录）")
+
+    # Sync a public copy for the website (GitHub Pages serves /data/ but not /.github/)
+    data_dir  = README_FILE.parent / "data"
+    data_dir.mkdir(exist_ok=True)
+    data_file = data_dir / "listings.json"
+    import shutil
+    shutil.copy(util.LISTINGS_FILE, data_file)
+    print(f"data/listings.json 已同步")
 
 
 if __name__ == "__main__":
