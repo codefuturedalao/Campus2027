@@ -1,0 +1,70 @@
+name: Contribution Approved
+
+on:
+  issues:
+    types: [labeled]
+
+concurrency:
+  group: update-listings
+  cancel-in-progress: false
+
+jobs:
+  process-contribution:
+    runs-on: ubuntu-latest
+    if: github.event.label.name == 'approved'
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run contribution.py
+        id: parse_issue
+        env:
+          GITHUB_EVENT_PATH: ${{ github.event_path }}
+        run: |
+          cd .github/scripts
+          python contribution.py "$GITHUB_EVENT_PATH"
+
+      - name: Run update_readme.py
+        id: update_readme
+        run: |
+          cd .github/scripts
+          python update_readme.py
+
+      - name: Commit changes
+        if: success()
+        run: |
+          git config --local user.email "${{ steps.parse_issue.outputs.commit_email }}"
+          git config --local user.name  "${{ steps.parse_issue.outputs.commit_username }}"
+          git add .github/scripts/listings.json README.md
+          git diff-index --quiet HEAD || \
+            git commit -m "${{ steps.parse_issue.outputs.commit_message }}"
+
+      - name: Push changes
+        if: success()
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+
+      - name: Close issue with success comment
+        if: success()
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --body "✅ 贡献已合并，感谢！数据已更新至 README.md。"
+          gh issue close ${{ github.event.issue.number }}
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Comment on failure
+        if: failure()
+        run: |
+          gh issue comment ${{ github.event.issue.number }} \
+            --body "❌ 自动处理失败：${{ steps.parse_issue.outputs.error_message }}${{ steps.update_readme.outputs.error_message }}。请检查表单内容后重新提交，或联系维护者。"
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

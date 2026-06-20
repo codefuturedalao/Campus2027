@@ -1,0 +1,41 @@
+name: Manual README Update
+
+on:
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "触发原因（可选）"
+        required: false
+        default: "手动触发"
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Run update_readme.py
+        run: |
+          cd .github/scripts
+          python update_readme.py
+
+      - name: Commit and push
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name  "Campus2027 Bot"
+          git add README.md
+          git diff-index --quiet HEAD || \
+            git commit -m "chore: refresh README (${{ github.event.inputs.reason }})"
+
+      - name: Push changes
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}

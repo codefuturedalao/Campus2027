@@ -1,0 +1,111 @@
+name: "新增招聘信息"
+description: "提交一条新的校招/实习信息"
+title: "[新增] 公司名 · 批次类型"
+labels:
+  - "new_job"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        感谢你的贡献！提交后维护者会审核并打上 `approved` 标签。
+        **请确保信息来源于官方渠道。**
+
+  - type: input
+    id: company_name
+    attributes:
+      label: "公司名称"
+      description: "请填写公司全名，如：字节跳动"
+      placeholder: "字节跳动"
+    validations:
+      required: true
+
+  - type: input
+    id: career_url
+    attributes:
+      label: "投递链接"
+      description: "官方校招投递页面 URL"
+      placeholder: "https://jobs.bytedance.com/zh/position"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: batch_type
+    attributes:
+      label: "批次类型"
+      options:
+        - "提前批"
+        - "正式批"
+        - "实习"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "行业分类"
+      options:
+        - "互联网/AI"
+        - "游戏"
+        - "外企（中国）"
+        - "车企/通信/IC"
+        - "金融/银行/国企"
+        - "安全/软件/云"
+        - "其他"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: "招聘状态"
+      options:
+        - "已开放（投递中）"
+        - "未开放（预计开放）"
+        - "已截止"
+    validations:
+      required: true
+
+  - type: input
+    id: open_date
+    attributes:
+      label: "开放日期"
+      description: "如已开放，填写具体日期（格式：YYYY-MM-DD）"
+      placeholder: "2026-07-15"
+    validations:
+      required: false
+
+  - type: input
+    id: expected_date
+    attributes:
+      label: "预计开放日期"
+      description: "如未开放，填写预计开放日期（格式：YYYY-MM-DD）"
+      placeholder: "2026-08-01"
+    validations:
+      required: false
+
+  - type: input
+    id: locations
+    attributes:
+      label: "工作地点"
+      description: "用逗号或顿号分隔，如：北京、上海、深圳"
+      placeholder: "全国"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "备注"
+      description: "补充说明，如内推码、截止日期等"
+      placeholder: "内推码：XXXXXX，截止日期：2026-08-31"
+    validations:
+      required: false
+
+  - type: input
+    id: email
+    attributes:
+      label: "联系邮箱（可选）"
+      description: "用于 git commit 署名，不填则用 Bot 账户提交"
+      placeholder: "your@email.com"
+    validations:
+      required: false

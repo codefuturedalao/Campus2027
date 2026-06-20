@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: "💬 讨论 / 提问"
+    url: https://github.com/discussions
+    about: "有疑问或想讨论校招信息？欢迎在 Discussions 发帖。"

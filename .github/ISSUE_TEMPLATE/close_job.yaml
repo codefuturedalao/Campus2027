@@ -1,0 +1,48 @@
+name: "标记已截止"
+description: "将某条招聘信息标记为已截止"
+title: "[截止] 公司名 · 批次类型"
+labels:
+  - "close_job"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请填写需要标记为截止的公司名称和批次类型。
+
+  - type: input
+    id: company_name
+    attributes:
+      label: "公司名称"
+      description: "必须与现有记录完全一致"
+      placeholder: "字节跳动"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: batch_type
+    attributes:
+      label: "批次类型"
+      description: "必须与现有记录完全一致"
+      options:
+        - "提前批"
+        - "正式批"
+        - "实习"
+    validations:
+      required: true
+
+  - type: input
+    id: career_url
+    attributes:
+      label: "投递链接（可选）"
+      description: "当同一公司同批次有多条记录时，填写 URL 以精确定位"
+      placeholder: "https://jobs.bytedance.com/zh/position"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "说明"
+      placeholder: "截止日期、信息来源等"
+    validations:
+      required: false

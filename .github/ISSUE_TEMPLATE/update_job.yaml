@@ -1,0 +1,106 @@
+name: "更新招聘信息"
+description: "更新一条已有的校招/实习信息（状态变更、链接更新等）"
+title: "[更新] 公司名 · 批次类型"
+labels:
+  - "update_job"
+body:
+  - type: markdown
+    attributes:
+      value: |
+        请通过**公司名称 + 批次类型**定位需要更新的记录。
+        填写的字段将**覆盖**原有内容，未填写的字段保持不变。
+
+  - type: input
+    id: company_name
+    attributes:
+      label: "公司名称"
+      description: "必须与现有记录完全一致"
+      placeholder: "字节跳动"
+    validations:
+      required: true
+
+  - type: input
+    id: career_url
+    attributes:
+      label: "投递链接"
+      placeholder: "https://jobs.bytedance.com/zh/position"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: batch_type
+    attributes:
+      label: "批次类型"
+      description: "必须与现有记录完全一致"
+      options:
+        - "提前批"
+        - "正式批"
+        - "实习"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "行业分类"
+      options:
+        - "互联网/AI"
+        - "游戏"
+        - "外企（中国）"
+        - "车企/通信/IC"
+        - "金融/银行/国企"
+        - "安全/软件/云"
+        - "其他"
+    validations:
+      required: false
+
+  - type: dropdown
+    id: status
+    attributes:
+      label: "招聘状态（更新后）"
+      options:
+        - "已开放（投递中）"
+        - "未开放（预计开放）"
+        - "已截止"
+    validations:
+      required: true
+
+  - type: input
+    id: open_date
+    attributes:
+      label: "开放日期"
+      placeholder: "2026-07-15"
+    validations:
+      required: false
+
+  - type: input
+    id: expected_date
+    attributes:
+      label: "预计开放日期"
+      placeholder: "2026-08-01"
+    validations:
+      required: false
+
+  - type: input
+    id: locations
+    attributes:
+      label: "工作地点"
+      placeholder: "全国"
+    validations:
+      required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: "备注"
+      placeholder: "更新原因或补充说明"
+    validations:
+      required: false
+
+  - type: input
+    id: email
+    attributes:
+      label: "联系邮箱（可选）"
+      placeholder: "your@email.com"
+    validations:
+      required: false
