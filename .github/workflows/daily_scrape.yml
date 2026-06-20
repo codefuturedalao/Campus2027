@@ -1,0 +1,66 @@
+name: Daily Scrape
+
+on:
+  schedule:
+    - cron: '0 1 * * *'   # UTC 01:00 = 北京时间 09:00
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Dry run（只打印，不写入）"
+        required: false
+        default: "false"
+
+concurrency:
+  group: update-listings
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install httpx
+
+      - name: Run scraper
+        id: scraper
+        run: |
+          cd .github/scripts
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then
+            python scrape_all.py --dry-run
+          else
+            python scrape_all.py
+          fi
+
+      - name: Update README & data/listings.json
+        if: steps.scraper.outputs.has_changes == 'true'
+        run: |
+          cd .github/scripts
+          python update_readme.py
+
+      - name: Commit & push
+        if: steps.scraper.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true'
+        run: |
+          git config --local user.email "bot@campus2027.dev"
+          git config --local user.name  "Campus2027 Bot"
+          git add .github/scripts/listings.json \
+                  .github/scripts/scrape_state.json \
+                  README.md \
+                  data/listings.json
+          git diff-index --quiet HEAD || \
+            git commit -m "chore: daily scrape $(date +'%Y-%m-%d') · ${{ steps.scraper.outputs.changes_count }} changes"
+
+      - name: Push changes
+        if: steps.scraper.outputs.has_changes == 'true' && github.event.inputs.dry_run != 'true'
+        uses: ad-m/github-push-action@v0.8.0
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
