@@ -83,7 +83,7 @@ def make_section(batch_type: str, listings_in_batch: list) -> str:
 
 def get_repo_slug() -> str:
     """Return 'owner/repo' from GITHUB_REPOSITORY env var, or a placeholder."""
-    return os.environ.get("GITHUB_REPOSITORY", "your-username/Campus2027")
+    return os.environ.get("GITHUB_REPOSITORY", "codefuturedalao/Campus2027")
 
 
 def build_readme(listings: list) -> str:

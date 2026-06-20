@@ -263,11 +263,6 @@
     .status-badge.exp    { background: var(--exp-bg);    color: var(--exp); }
     .status-badge.closed { background: var(--closed-bg); color: var(--closed); }
     .status-badge:hover { filter: brightness(.95); }
-    .locs {
-      color: var(--muted);
-      font-size: 12px;
-      max-width: 160px;
-    }
     .notes {
       color: var(--muted);
       font-size: 12px;
@@ -318,8 +313,7 @@
     @media (max-width: 640px) {
       .page { padding: 20px 16px 60px; }
       .stats { gap: 10px; }
-      td:nth-child(3), th:nth-child(3),
-      td:nth-child(5), th:nth-child(5) { display: none; }
+      td:nth-child(3), th:nth-child(3) { display: none; }
       #search { width: 140px; }
       .search-wrap { margin-left: 0; }
     }
@@ -370,7 +364,6 @@
       <button class="pill active" data-filter="batch" data-val="">全部</button>
       <button class="pill" data-filter="batch" data-val="提前批">提前批</button>
       <button class="pill" data-filter="batch" data-val="正式批">正式批</button>
-      <button class="pill" data-filter="batch" data-val="实习">实习</button>
       <div class="search-wrap">
         <svg viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 100 11 5.5 5.5 0 000-11zM2 9a7 7 0
           1112.452 4.391l3.328 3.329a.75.75 0 11-1.06 1.06l-3.329-3.328A7 7 0 012 9z" clip-rule="evenodd"/></svg>
@@ -408,10 +401,10 @@
 </footer>
 
 <script>
-const REPO     = document.currentScript?.dataset?.repo || 'your-username/Campus2027';
+const REPO     = document.currentScript?.dataset?.repo || 'codefuturedalao/Campus2027';
 const DATA_URL = './data/listings.json';
 
-const BATCH_ORDER  = ['提前批', '正式批', '实习'];
+const BATCH_ORDER  = ['提前批', '正式批'];
 const CAT_ORDER    = ['互联网/AI','游戏','外企（中国）','车企/通信/IC','金融/银行/国企','安全/软件/云'];
 
 let allListings = [];
@@ -536,7 +529,7 @@ function render() {
       html += `<div class="cat-label">${escHtml(cat)}</div>
         <table>
           <thead><tr>
-            <th>公司</th><th>状态 &amp; 投递链接</th><th>地点</th>
+            <th>公司</th><th>状态 &amp; 投递链接</th>
             <th>更新日期</th><th>备注</th>
           </tr></thead>
           <tbody>`;
@@ -547,7 +540,6 @@ function render() {
             ${l.company_en ? `<div class="company-en">${escHtml(l.company_en)}</div>` : ''}
           </td>
           <td>${statusBadge(l)}</td>
-          <td class="locs">${escHtml(fmtLocs(l.locations))}</td>
           <td class="date-cell">${fmtDate(l.date_updated)}</td>
           <td class="notes" title="${escHtml(l.notes||'')}">${escHtml(l.notes||'—')}</td>
         </tr>`;
