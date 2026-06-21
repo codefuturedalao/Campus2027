@@ -6,3 +6,4 @@ __pycache__/
 # 本地调试时产生，Actions 运行时会提交
 .github/scripts/scrape_state.json
 .github/scripts/wechat_state.json
+we-mp-rss-data/
