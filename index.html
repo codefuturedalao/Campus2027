@@ -258,6 +258,12 @@
       color: var(--muted);
       font-weight: 400;
     }
+    .program-name {
+      font-size: 11px;
+      color: var(--accent);
+      font-weight: 400;
+      margin-top: 2px;
+    }
     .status-badge {
       display: inline-flex;
       align-items: center;
@@ -561,7 +567,7 @@ function render() {
         html += `<tr>
           <td>
             <div class="company-name">${escHtml(l.company_name)}</div>
-            ${l.company_en ? `<div class="company-en">${escHtml(l.company_en)}</div>` : ''}
+            ${l.program_name ? `<div class="program-name">${escHtml(l.program_name)}</div>` : (l.company_en ? `<div class="company-en">${escHtml(l.company_en)}</div>` : '')}
           </td>
           <td>${statusBadge(l)}</td>
           <td class="date-cell">${fmtDate(l.date_updated)}</td>

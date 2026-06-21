@@ -97,7 +97,8 @@
         "source": "manual",
         "date_posted": 1779926400,
         "date_updated": 1782000000,
-        "is_visible": true
+        "is_visible": true,
+        "program_name": "Star计划"
     },
     {
         "id": "a1b2c3d4-0001-0001-0001-000000000006",
@@ -199,8 +200,9 @@
         "notes": "https://mp.weixin.qq.com/s/g-8j7uMH3FSWdrVLiJ5fXQ",
         "source": "manual",
         "date_posted": 1780444800,
-        "date_updated": 1781913600,
-        "is_visible": true
+        "date_updated": 1782000000,
+        "is_visible": true,
+        "program_name": "北斗计划"
     },
     {
         "id": "a1b2c3d4-0001-0001-0001-000000000010",
@@ -548,8 +550,9 @@
         "notes": "https://mp.weixin.qq.com/s/rtyq-eierVjZtssI37-T5w",
         "source": "manual",
         "date_posted": 1780617600,
-        "date_updated": 1781913600,
-        "is_visible": true
+        "date_updated": 1782000000,
+        "is_visible": true,
+        "program_name": "顶尖校招"
     },
     {
         "id": "a1b2c3d4-0001-0001-0001-000000000025",
@@ -751,7 +754,7 @@
         "wechat_article_url": "https://mp.weixin.qq.com/s/9a2E-ZqAfbTRvLgyqeaZlQ",
         "batch_type": "正式批",
         "status": "open",
-        "open_date": "2026-06-21",
+        "open_date": "2026-05-19",
         "expected_date": null,
         "locations": [
             "杭州",
@@ -759,7 +762,7 @@
         ],
         "notes": "https://mp.weixin.qq.com/s/9a2E-ZqAfbTRvLgyqeaZlQ",
         "source": "manual",
-        "date_posted": 1782000000,
+        "date_posted": 1779148800,
         "date_updated": 1782000000,
         "is_visible": true
     },
@@ -772,16 +775,17 @@
         "wechat_article_url": "https://mp.weixin.qq.com/s/8yVJmU7PoKVz-l-W7x5AUw",
         "batch_type": "提前批",
         "status": "open",
-        "open_date": "2026-06-21",
+        "open_date": "2026-05-18",
         "expected_date": null,
         "locations": [
             "全国"
         ],
         "notes": "https://mp.weixin.qq.com/s/8yVJmU7PoKVz-l-W7x5AUw",
         "source": "manual",
-        "date_posted": 1782000000,
+        "date_posted": 1779062400,
         "date_updated": 1782000000,
-        "is_visible": true
+        "is_visible": true,
+        "program_name": "蚂蚁星Plan A顶尖人才计划"
     },
     {
         "id": "a1b2c3d4-0001-0001-0001-000000000038",
@@ -792,15 +796,16 @@
         "wechat_article_url": "https://mp.weixin.qq.com/s/0IpyHmOTr1b2WjYnR6g8EA",
         "batch_type": "提前批",
         "status": "open",
-        "open_date": "2026-06-21",
+        "open_date": "2026-05-19",
         "expected_date": null,
         "locations": [
             "全国"
         ],
         "notes": "https://mp.weixin.qq.com/s/0IpyHmOTr1b2WjYnR6g8EA",
         "source": "manual",
-        "date_posted": 1782000000,
+        "date_posted": 1779148800,
         "date_updated": 1782000000,
-        "is_visible": true
+        "is_visible": true,
+        "program_name": "AI人才专项"
     }
 ]

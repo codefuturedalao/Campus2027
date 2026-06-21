@@ -5,7 +5,7 @@
 > **2027届计算机学生秋招信息追踪** · 每日更新 · 欢迎共创
 >
 > 数据来源：各大厂官方校招官网 + 社区贡献
-> 最后更新：`2026-06-21 03:54 UTC`
+> 最后更新：`2026-06-21 03:59 UTC`
 
 **📊 当前统计：** 共收录 **38** 条 · 已开放 **6** 条 · 待开放 **32** 条
 
@@ -34,16 +34,16 @@
 | 字节跳动 | [⏳ 未开放（预计 2026-07-01）](https://jobs.bytedance.com/campus) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
 | 快手 | [✅ 投递中（2026-05-28）](https://campus.kuaishou.cn/#/campus/index) | 全国 | 2026/06/21 | https://mp.weixin.qq.com/s/1LFm8FhfWiR5QZdFHDFmgw |
 | 百度 | [⏳ 未开放（预计 2026-07-01）](https://talent.baidu.com/jobs/list) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
-| 美团 | [✅ 投递中（2026-06-03）](https://zhaopin.meituan.com/web/beidouprogram) | 北京、上海、深圳等 | 2026/06/20 | https://mp.weixin.qq.com/s/g-8j7uMH3FSWdrVLiJ5fXQ |
+| 美团 | [✅ 投递中（2026-06-03）](https://zhaopin.meituan.com/web/beidouprogram) | 北京、上海、深圳等 | 2026/06/21 | https://mp.weixin.qq.com/s/g-8j7uMH3FSWdrVLiJ5fXQ |
 | 腾讯 | [⏳ 未开放（预计 2026-07-01）](https://join.qq.com/post.html) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
-| 蚂蚁集团 | [✅ 投递中（2026-06-21）](https://campus.antgroup.com/) | 全国 | 2026/06/21 | https://mp.weixin.qq.com/s/8yVJmU7PoKVz-l-W7x5AUw |
+| 蚂蚁集团 | [✅ 投递中（2026-05-18）](https://campus.antgroup.com/) | 全国 | 2026/06/21 | https://mp.weixin.qq.com/s/8yVJmU7PoKVz-l-W7x5AUw |
 
 ### 车企/通信/IC
 
 | 公司 | 状态 & 投递链接 | 地点 | 更新日期 | 备注 |
 | ---- | -------------- | ---- | -------- | ---- |
-| 华为 | [✅ 投递中（2026-06-21）](https://career.huawei.com/reccampportal/portal5/campus-recruitment.html) | 全国 | 2026/06/21 | https://mp.weixin.qq.com/s/0IpyHmOTr1b2WjYnR6g8EA |
-| 小米 | [✅ 投递中（2026-06-05）](https://campus.hr.xiaomi.com/) | 北京、上海、深圳等 | 2026/06/20 | https://mp.weixin.qq.com/s/rtyq-eierVjZtssI37-T5w |
+| 华为 | [✅ 投递中（2026-05-19）](https://career.huawei.com/reccampportal/portal5/campus-recruitment.html) | 全国 | 2026/06/21 | https://mp.weixin.qq.com/s/0IpyHmOTr1b2WjYnR6g8EA |
+| 小米 | [✅ 投递中（2026-06-05）](https://campus.hr.xiaomi.com/) | 北京、上海、深圳等 | 2026/06/21 | https://mp.weixin.qq.com/s/rtyq-eierVjZtssI37-T5w |
 
 ## 校招正式批
 
@@ -109,7 +109,7 @@
 
 | 公司 | 状态 & 投递链接 | 地点 | 更新日期 | 备注 |
 | ---- | -------------- | ---- | -------- | ---- |
-| 宇树科技 | [✅ 投递中（2026-06-21）](https://www.unitree.com/join/) | 杭州、深圳 | 2026/06/21 | https://mp.weixin.qq.com/s/9a2E-ZqAfbTRvLgyqeaZlQ |
+| 宇树科技 | [✅ 投递中（2026-05-19）](https://www.unitree.com/join/) | 杭州、深圳 | 2026/06/21 | https://mp.weixin.qq.com/s/9a2E-ZqAfbTRvLgyqeaZlQ |
 
 ---
 
