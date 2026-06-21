@@ -273,6 +273,12 @@
     .status-badge.exp    { background: var(--exp-bg);    color: var(--exp); }
     .status-badge.closed { background: var(--closed-bg); color: var(--closed); }
     .status-badge:hover { filter: brightness(.95); }
+    .src-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 12px;
+    }
+    .src-link:hover { text-decoration: underline; }
     .notes {
       color: var(--muted);
       font-size: 12px;
@@ -465,6 +471,14 @@ function statusBadge(l) {
 function escHtml(s) {
   return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 }
+function fmtNotes(s) {
+  if (!s) return '—';
+  const url = s.trim();
+  if (/^https?:\/\//.test(url)) {
+    return `<a href="${escHtml(url)}" target="_blank" rel="noopener" class="src-link">来源</a>`;
+  }
+  return escHtml(url);
+}
 
 // ── Filter ─────────────────────────────────────────
 function filtered() {
@@ -551,7 +565,7 @@ function render() {
           </td>
           <td>${statusBadge(l)}</td>
           <td class="date-cell">${fmtDate(l.date_updated)}</td>
-          <td class="notes" title="${escHtml(l.notes||'')}">${escHtml(l.notes||'—')}</td>
+          <td class="notes">${fmtNotes(l.notes)}</td>
         </tr>`;
       }
       html += `</tbody></table>`;
