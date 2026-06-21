@@ -247,6 +247,28 @@
         "is_visible": true
     },
     {
+        "id": "a1b2c3d4-0001-0001-0001-000000000039",
+        "company_name": "拼多多",
+        "company_en": "PDD",
+        "category": "互联网/AI",
+        "career_url": "https://careers.pddglobalhr.com/campus/grad",
+        "wechat_article_url": null,
+        "batch_type": "提前批",
+        "program_name": "云弧计划",
+        "status": "open",
+        "open_date": "2026-05-08",
+        "expected_date": null,
+        "locations": [
+            "上海",
+            "深圳"
+        ],
+        "notes": null,
+        "source": "manual",
+        "date_posted": 1746662400,
+        "date_updated": 1782000000,
+        "is_visible": true
+    },
+    {
         "id": "a1b2c3d4-0001-0001-0001-000000000012",
         "company_name": "小红书",
         "company_en": "Xiaohongshu",
