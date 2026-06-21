@@ -85,18 +85,18 @@
         "company_en": "Kuaishou",
         "category": "互联网/AI",
         "career_url": "https://campus.kuaishou.cn/#/campus/index",
-        "wechat_article_url": null,
+        "wechat_article_url": "https://mp.weixin.qq.com/s/1LFm8FhfWiR5QZdFHDFmgw",
         "batch_type": "提前批",
-        "status": "expected",
-        "open_date": null,
+        "status": "open",
+        "open_date": "2026-05-28",
         "expected_date": "2026-07-01",
         "locations": [
             "全国"
         ],
-        "notes": "2027届校招提前批预计7月开启",
+        "notes": "https://mp.weixin.qq.com/s/1LFm8FhfWiR5QZdFHDFmgw",
         "source": "manual",
-        "date_posted": 1781913600,
-        "date_updated": 1781913600,
+        "date_posted": 1779926400,
+        "date_updated": 1782000000,
         "is_visible": true
     },
     {
@@ -740,6 +740,67 @@
         "source": "manual",
         "date_posted": 1781913600,
         "date_updated": 1781913600,
+        "is_visible": true
+    },
+    {
+        "id": "a1b2c3d4-0001-0001-0001-000000000036",
+        "company_name": "宇树科技",
+        "company_en": "Unitree Robotics",
+        "category": "机器人",
+        "career_url": "https://www.unitree.com/join/",
+        "wechat_article_url": "https://mp.weixin.qq.com/s/9a2E-ZqAfbTRvLgyqeaZlQ",
+        "batch_type": "正式批",
+        "status": "open",
+        "open_date": "2026-06-21",
+        "expected_date": null,
+        "locations": [
+            "杭州",
+            "深圳"
+        ],
+        "notes": "https://mp.weixin.qq.com/s/9a2E-ZqAfbTRvLgyqeaZlQ",
+        "source": "manual",
+        "date_posted": 1782000000,
+        "date_updated": 1782000000,
+        "is_visible": true
+    },
+    {
+        "id": "a1b2c3d4-0001-0001-0001-000000000037",
+        "company_name": "蚂蚁集团",
+        "company_en": "Ant Group",
+        "category": "互联网/AI",
+        "career_url": "https://campus.antgroup.com/",
+        "wechat_article_url": "https://mp.weixin.qq.com/s/8yVJmU7PoKVz-l-W7x5AUw",
+        "batch_type": "提前批",
+        "status": "open",
+        "open_date": "2026-06-21",
+        "expected_date": null,
+        "locations": [
+            "全国"
+        ],
+        "notes": "https://mp.weixin.qq.com/s/8yVJmU7PoKVz-l-W7x5AUw",
+        "source": "manual",
+        "date_posted": 1782000000,
+        "date_updated": 1782000000,
+        "is_visible": true
+    },
+    {
+        "id": "a1b2c3d4-0001-0001-0001-000000000038",
+        "company_name": "华为",
+        "company_en": "Huawei",
+        "category": "车企/通信/IC",
+        "career_url": "https://career.huawei.com/reccampportal/portal5/campus-recruitment.html",
+        "wechat_article_url": "https://mp.weixin.qq.com/s/0IpyHmOTr1b2WjYnR6g8EA",
+        "batch_type": "提前批",
+        "status": "open",
+        "open_date": "2026-06-21",
+        "expected_date": null,
+        "locations": [
+            "全国"
+        ],
+        "notes": "https://mp.weixin.qq.com/s/0IpyHmOTr1b2WjYnR6g8EA",
+        "source": "manual",
+        "date_posted": 1782000000,
+        "date_updated": 1782000000,
         "is_visible": true
     }
 ]
