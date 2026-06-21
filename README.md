@@ -5,7 +5,7 @@
 > **2027届计算机学生秋招信息追踪** · 每日更新 · 欢迎共创
 >
 > 数据来源：各大厂官方校招官网 + 社区贡献
-> 最后更新：`2026-06-21 04:08 UTC`
+> 最后更新：`2026-06-21 04:09 UTC`
 
 **📊 当前统计：** 共收录 **39** 条 · 已开放 **7** 条 · 待开放 **32** 条
 
@@ -33,7 +33,7 @@
 | 京东 | [⏳ 未开放（预计 2026-07-01）](https://campus.jd.com/#/jobs) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
 | 字节跳动 | [⏳ 未开放（预计 2026-07-01）](https://jobs.bytedance.com/campus) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
 | 快手 | [✅ 投递中（2026-05-28）](https://campus.kuaishou.cn/#/campus/index) | 全国 | 2026/06/21 | https://mp.weixin.qq.com/s/1LFm8FhfWiR5QZdFHDFmgw |
-| 拼多多 | [✅ 投递中（2026-05-08）](https://careers.pddglobalhr.com/campus/grad) | 上海、深圳 | 2026/06/21 |  |
+| 拼多多 | [✅ 投递中（2026-05-08）](https://careers.pddglobalhr.com/campus/grad) | 上海、深圳 | 2026/06/21 | https://mp.weixin.qq.com/s/vfVYQkzdfjxRF_A79aipXg |
 | 百度 | [⏳ 未开放（预计 2026-07-01）](https://talent.baidu.com/jobs/list) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
 | 美团 | [✅ 投递中（2026-06-03）](https://zhaopin.meituan.com/web/beidouprogram) | 北京、上海、深圳等 | 2026/06/21 | https://mp.weixin.qq.com/s/g-8j7uMH3FSWdrVLiJ5fXQ |
 | 腾讯 | [⏳ 未开放（预计 2026-07-01）](https://join.qq.com/post.html) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
