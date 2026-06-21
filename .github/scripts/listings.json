@@ -185,10 +185,10 @@
         "company_en": "Meituan",
         "category": "互联网/AI",
         "career_url": "https://zhaopin.meituan.com/web/beidouprogram",
-        "wechat_article_url": null,
+        "wechat_article_url": "https://mp.weixin.qq.com/s/g-8j7uMH3FSWdrVLiJ5fXQ",
         "batch_type": "提前批",
         "status": "open",
-        "open_date": "2026-06-04",
+        "open_date": "2026-06-03",
         "expected_date": null,
         "locations": [
             "北京",
@@ -196,9 +196,9 @@
             "深圳",
             "成都"
         ],
-        "notes": "北斗计划已启动，聚焦大模型/自动驾驶/无人机，网申截止2026-08-03",
+        "notes": "北斗计划已启动，聚焦大模型/自动驾驶/无人机，网申截止2026-08-03。来源：美团招聘公众号",
         "source": "manual",
-        "date_posted": 1780531200,
+        "date_posted": 1780444800,
         "date_updated": 1781913600,
         "is_visible": true
     },
@@ -523,6 +523,31 @@
         "notes": "2027届暑期实习及提前批通道已开启，实习优秀可直通秋招Offer",
         "source": "manual",
         "date_posted": 1781913600,
+        "date_updated": 1781913600,
+        "is_visible": true
+    },
+    {
+        "id": "a1b2c3d4-0001-0001-0001-000000000035",
+        "company_name": "小米",
+        "company_en": "Xiaomi",
+        "category": "车企/通信/IC",
+        "career_url": "https://campus.hr.xiaomi.com/",
+        "wechat_article_url": "https://mp.weixin.qq.com/s/rtyq-eierVjZtssI37-T5w",
+        "batch_type": "提前批",
+        "status": "open",
+        "open_date": "2026-06-05",
+        "expected_date": null,
+        "locations": [
+            "北京",
+            "上海",
+            "深圳",
+            "武汉",
+            "南京",
+            "西安"
+        ],
+        "notes": "2027届暑期实习/提前批已开启，实习优秀可直通秋招Offer。来源：小米招聘公众号",
+        "source": "manual",
+        "date_posted": 1780617600,
         "date_updated": 1781913600,
         "is_visible": true
     },
