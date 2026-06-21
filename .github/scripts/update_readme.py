@@ -49,7 +49,7 @@ def make_table(listings: list) -> str:
         status   = status_cell(l)
         locs     = util.format_locations(l.get("locations", []))
         updated  = util.format_date(l.get("date_updated", 0))
-        notes    = l.get("notes", "").replace("\n", " ").strip()
+        notes    = (l.get("notes") or "").replace("\n", " ").strip()
         rows.append(f"| {company} | {status} | {locs} | {updated} | {notes} |")
     return "\n".join(rows)
 

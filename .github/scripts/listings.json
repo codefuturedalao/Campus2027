@@ -511,8 +511,8 @@
         "career_url": "https://campus.hr.xiaomi.com/",
         "wechat_article_url": null,
         "batch_type": "正式批",
-        "status": "open",
-        "open_date": "2026-06-09",
+        "status": "expected",
+        "open_date": null,
         "expected_date": "2026-08-01",
         "locations": [
             "北京",
@@ -520,7 +520,7 @@
             "上海",
             "武汉"
         ],
-        "notes": "2027届暑期实习及提前批通道已开启，实习优秀可直通秋招Offer",
+        "notes": null,
         "source": "manual",
         "date_posted": 1781913600,
         "date_updated": 1781913600,
