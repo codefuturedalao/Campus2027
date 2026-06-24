@@ -5,9 +5,9 @@
 > **2027届计算机学生秋招信息追踪** · 每日更新 · 欢迎共创
 >
 > 数据来源：各大厂官方校招官网 + 社区贡献
-> 最后更新：`2026-06-21 04:09 UTC`
+> 最后更新：`2026-06-24 16:26 UTC`
 
-**📊 当前统计：** 共收录 **39** 条 · 已开放 **7** 条 · 待开放 **32** 条
+**📊 当前统计：** 共收录 **40** 条 · 已开放 **8** 条 · 待开放 **32** 条
 
 ---
 
@@ -38,6 +38,7 @@
 | 美团 | [✅ 投递中（2026-06-03）](https://zhaopin.meituan.com/web/beidouprogram) | 北京、上海、深圳等 | 2026/06/21 | https://mp.weixin.qq.com/s/g-8j7uMH3FSWdrVLiJ5fXQ |
 | 腾讯 | [⏳ 未开放（预计 2026-07-01）](https://join.qq.com/post.html) | 全国 | 2026/06/20 | 2027届校招提前批预计7月开启 |
 | 蚂蚁集团 | [✅ 投递中（2026-05-18）](https://campus.antgroup.com/) | 全国 | 2026/06/21 | https://mp.weixin.qq.com/s/8yVJmU7PoKVz-l-W7x5AUw |
+| 阿里巴巴 | [✅ 投递中（2026-06-23）](https://talent.alibaba.com/campus/position-list?campusType=graduate) | 全国 | 2026/06/23 | https://mp.weixin.qq.com/s/5phiRqiTz7RqzGy8SDf3gg |
 
 ### 车企/通信/IC
 
